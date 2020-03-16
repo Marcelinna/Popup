@@ -1,12 +1,7 @@
 
-const ul = document.querySelector(".vendor_list_ul");
 const btnShowHideVendors = document.querySelector(".btn_show_hide_vendors")
-const vendorsList = document.querySelector(".vendors_list")
-const btnAccept = document.querySelector(".btn_accept")
 const btnReject = document.querySelector(".btn_reject")
 const popup = document.getElementById("popup")
-const body = document.getElementById("body")
-
 
 window.onload = function(){
     checkCookie();
@@ -15,36 +10,66 @@ window.onload = function(){
 const fetchItems = async()=>{
     const data = await fetch("https://vendorlist.consensu.org/vendorlist.json")
 
-
     const items = await data.json();
     const vendors = items.vendors
-
-
+    
     const ven = vendors.map(item=>{
-        return`<li class="li"><button class ="btn_vendor_li" type="button"><i class="fas fa-check"></i></button> ${item.name}<a href="${item.policyUrl}">View Privacy Notice</a>  </li>`
+        return`<li class="li"><input class ="input_vendor_li" type="checkbox" checked></input> ${item.name}<a href="${item.policyUrl}">View Privacy Notice</a>  </li>`
     }).join('')
+
+    const ul = document.querySelector(".vendor_list_ul");
     
     ul.innerHTML=ven;  
 
-    //Toggle btn 
-    const btn = document.querySelectorAll(".btn_vendor_li");
-    
-    btn.forEach(element => element.addEventListener("click", function(){
-    
-    if(element.style.backgroundColor == "rgb(255, 255, 255)"){
-        element.style.backgroundColor ="rgb(43, 130, 243)";
-    }
-    else{
+    const inputVendorList = document.querySelectorAll(".input_vendor_li");
 
-        element.style.backgroundColor ="rgb(255, 255, 255)";
+    //Checking the quantities vendors checked and disabling acceptance if the number is 0
+
+    function checkChecked() {
+        for(let i=0; i<inputVendorList.length; i++) {
+            if(!(inputVendorList[i].checked)){
+              btnAccept.disabled = true
+            }
+        }
     }
-    //element.classList.toggle('complete');
-    }))
+    checkChecked()
+    
+// setCookie
+
+    function setCookie(name, exdays,) {
+        var d = new Date();
+        var vendorsObject = [];
+        
+        inputVendorList.forEach((element, index) =>{
+           
+            if (element.checked==true){
+                vendorsObject.push(index)
+                
+            }  
+         })
+       
+        var jsonString = JSON.stringify(vendorsObject);
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires="+d.toUTCString();
+        document.cookie = name + "=" + jsonString + ";" + expires + ";path=/;secure";
+      }
+
+// click Accept Button 
+     const btnAccept = document.querySelector(".btn_accept")
+
+      btnAccept.addEventListener("click",function(){
+        setCookie("popup", 1);
+        popup.style.display="none";
+        body.style.overflow = "visible";
+    
+    })
 
 }
 
-
+// click Show Hide Vendors
 btnShowHideVendors.addEventListener("click", function(){
+
+    const vendorsList = document.querySelector(".vendors_list")
    
     if(vendorsList.style.display == "none"){
     vendorsList.style.display = "block";
@@ -56,33 +81,16 @@ btnShowHideVendors.addEventListener("click", function(){
     }
 })
 
-btnAccept.addEventListener("click",function(){
-    setCookie("popup","Consent", 1);
-    popup.style.display="none";
-    body.style.overflow = "visible";
-
-})
+// click Reject Button
 
 btnReject.addEventListener("click",function(){
+    const body = document.getElementById("body")
+
     popup.style.display="none";
     body.style.overflow = "visible";
 })
 
-
-// function setCookie(nazwa, wartosc, dni){
-//         var data = new Data();
-//         data.setTime(data.getTime()+(dni * 24 * 60 * 60 * 1000));
-//         var expires ="expires="+data.toGMTString();
-
-//     document.cookie = nazwa + "=" + wartosc + expires + ";path=/";
-// }
-
-function setCookie(name, value, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        var expires = "expires="+d.toUTCString();
-        document.cookie = name + "=" + value + ";" + expires + ";path=/";
-      }
+//check cookie and display/undisplay popup window
 
  function checkCookie(){
      if(document.cookie.indexOf("popup")<0){
@@ -91,8 +99,7 @@ function setCookie(name, value, exdays) {
          fetchItems();
      }else{
         popup.style.display="none";
-     }
-    
+     }  
  }
 
 

@@ -72,6 +72,11 @@ body
     border-radius:2px;
 }
 
+.btn_accept, .btn_reject:hover
+{
+    cursor: pointer;
+}
+
 .btn_accept
 {
     position:absolute;
@@ -85,21 +90,9 @@ body
     right: 3.5%;
 }
 
-.complete
+.input_vendor_li:hover
 {
-    background-color:rgb(43, 130, 243);
-}
-
-.btn_vendor_li
-{
-    width: 19px;
-    background-color: rgb(43, 130, 243);
-    border-radius: 2px;
-    border:solid 1px rgb(58, 115, 190);    
-}
-.btn:hover
-{
-    cursor: pointer;   
+    cursor: pointer;      
 }
 
 .vendors_list
