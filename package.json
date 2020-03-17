@@ -1,0 +1,25 @@
+{
+  "name": "Popup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcelinna/Popup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcelinna/Popup/issues"
+  },
+  "homepage": "https://github.com/Marcelinna/Popup#readme"
+}

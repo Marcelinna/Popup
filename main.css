@@ -15,6 +15,7 @@ body
     color:white;
     font-family:'Julius Sans One', sans-serif;
     font-size: 13px;
+    text-align: justify;
     line-height: 20px;
     background-color:rgb(73, 69, 69);
     padding:30px;
@@ -30,6 +31,7 @@ body
     animation-name: appear;
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out; 
+    display:none;
 }
 @keyframes appear 
 {
