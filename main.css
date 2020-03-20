@@ -157,7 +157,7 @@ section {
   }
 
   #popup h1 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .btn_accept,
@@ -167,15 +167,13 @@ section {
   }
 
   #popup {
-    
     font-size: 13px;
     padding: 18px;
     padding-bottom: 30px;
-    width: 90%;
-    
+    width: 100%;
+    line-height: 15px;
+    position: absolute
   }
 
-  body{
-    overflow: visible !important;
-  }
+
 }
