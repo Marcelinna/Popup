@@ -174,4 +174,8 @@ section {
     width: 90%;
     
   }
+
+  body{
+    overflow: visible !important;
+  }
 }
