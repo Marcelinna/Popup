@@ -144,6 +144,18 @@ section {
     display: block;
     float: none;
   }
+
+  .vendors_list ul li {
+    padding: 3px;
+  }
+  #popup {
+    width: 80%;
+  }
+
+  .vendors_list {
+    height: 230px;
+    padding: 10px;
+  }
 }
 
 @media (max-width: 550px) {
@@ -171,11 +183,13 @@ section {
     font-size: 12px;
     padding: 15px;
     padding-bottom: 20px;
-    width: 100%;
+    width: 90%;
     line-height: 15px;
     position: fixed;
-    top:1%;
+    top: 1%;
   }
 
-
+  .vendors_list {
+    height: 200px;
+  }
 }
