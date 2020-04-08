@@ -45,7 +45,7 @@ body {
   margin-bottom: 20px;
 }
 #popup p {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .btn_show_hide_vendors {
@@ -177,6 +177,7 @@ section {
   .btn_reject {
     bottom: 2%;
     width: 80px;
+    
   }
 
   #popup {
