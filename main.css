@@ -14,7 +14,7 @@ body {
   font-size: 13px;
   text-align: justify;
   line-height: 20px;
-  background-color: rgb(73, 69, 69);
+  background-color: #323232;
   padding: 30px;
   padding-bottom: 40px;
   width: 60%;
@@ -51,7 +51,8 @@ body {
 .btn_show_hide_vendors {
   color: rgb(43, 130, 243);
   font-weight: 600;
-  background-color: rgb(73, 69, 69);
+  background-color: #323232;;
+  padding: 3px;
 }
 .btn_show_hide_vendors:hover {
   cursor: pointer;
@@ -63,6 +64,7 @@ body {
   padding: 7px;
   width: 90px;
   border-radius: 2px;
+  border:2px solid white;
 }
 
 .btn_accept,
