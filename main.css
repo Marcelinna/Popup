@@ -5,7 +5,9 @@
 }
 
 body {
-  background-color: rgba(0, 0, 0, 0.082);
+  background-image: url("img/ocean.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #popup {
