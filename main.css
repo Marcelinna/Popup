@@ -6,7 +6,7 @@
 
 body {
   background-image: url("img/ocean.jpg");
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: cover;
 }
 
@@ -19,7 +19,7 @@ body {
   background-color: #323232;
   padding: 30px;
   padding-bottom: 40px;
-  width: 60%;
+  width: 56%;
   position: fixed;
   top: 4%;
   left: 50%;
